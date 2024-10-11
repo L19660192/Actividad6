@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Imagen al Pulsar Botón</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        /* Estilos de la imagen */
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+
+        img:hover {
+            transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+        }
+
+        /* Estilo del botón */
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px; /* Espacio encima del botón */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+        }
+
+        /* Estilo del título */
+        h1 {
+            color: #333;
+            margin-bottom: 20px; /* Espacio debajo del título */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cambia la Imagen al Pulsar el Botón</h1>
+
+    <!-- Imagen que cambiará -->
+    <img id="imagen" src="https://imgs.search.brave.com/G2_ej2jMtlCSt6WMOsHaA6vu2ISmL1N_S9n6oBAVzwc/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMi8x/MS8xNi8xNi81Ni9j/aXR5LTc1OTYzNzlf/XzM0MC5qcGc" alt="Imagen actual">
+
+    <!-- Botón que desencadenará el cambio -->
+    <button onclick="cambiarImagen()">Cambiar Imagen</button>
+
+    <script>
+        // Array de URLs de las imágenes
+        const imagenes = [
+            'https://imgs.search.brave.com/oTANbcEuKLV9UxVulJ7St20KWVLwzIsh36ZA5QgmmYc/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9wZXJzb25hLXNv/c3RlbmllbmRvLWlt/YWdlbi1tb250YW5h/XzExODE1MzEtMjUz/OC5qcGc_c2l6ZT02/MjYmZXh0PWpwZw',
+            'https://imgs.search.brave.com/Od_Kvfh1MJ4aQHtfG1THCdohbOLXz2dqZee80xQRTFw/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTc1/NTk3Nzc5L2VzL2Zv/dG8vb2xkLWZvdG9n/cmFmJUMzJUFEYXMu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PTJJSFU4RmxCYWdL/QXFsSTBwVjhsOHdt/eGI3eF9PZF95Wnhw/MS1MeUhLSWc9',
+            'https://imgs.search.brave.com/PDiAW0aZ-dt0npCflO5xM5BCavcWM6x68FLpK1OkhHg/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTMw/NjcwNDM4OC9lcy9m/b3RvL2VsLWZvdCVD/MyVCM2dyYWZvLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz01/VndiSE9rMV8zMGpw/ZkhxeHJtUjJCZVpx/ZEJCUTQ0SUxHOVNH/NllVX0NjPQ'
+        ];
+
+        let indiceImagen = 0;
+
+        // Función que cambia la imagen mostrada
+        function cambiarImagen() {
+            // Incrementar el índice de la imagen
+            indiceImagen = (indiceImagen + 1) % imagenes.length;
+
+            // Actualizar la fuente de la imagen con la nueva URL
+            document.getElementById('imagen').src = imagenes[indiceImagen];
+        }
+    </script>
+
+</body>
+</html>
